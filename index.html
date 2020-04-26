@@ -28,6 +28,7 @@
 
         let controls;
         let player;
+        let npc;
 
         function preload() {
             this.load.image("tiles", "./assets/tilesets/ProjectUtumno_full.png");
@@ -57,10 +58,15 @@
             });
 
             player = this.physics.add.sprite(400, 350, "atlas", "misa-front");
+            npc = this.physics.add.sprite(350, 350, "atlas", "misa-front");
+            npc.body.moves = false;
             player.body.collideWorldBounds = true;
-            console.log(player);
             this.physics.add.collider(player, belowLayer, function() {
                 console.log("i collided");
+            });
+
+            this.physics.add.collider(player, npc, function() {
+                console.log("i collided with npc");
             });
 
             // Create the player's walking animations from the texture atlas. These are stored in the global
@@ -100,6 +106,7 @@
         function update(time, delta) {
             // Stop any previous movement from the last frame
             player.body.setVelocity(0);
+            npc.body.setVelocity(0);
 
             // Horizontal movement
             if (cursors.left.isDown) {
