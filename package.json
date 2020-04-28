@@ -1,0 +1,8 @@
+{
+  "name": "pokedevs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:ohhyunjin/hackathon_game.git",
+  "author": "Antonio <jabg1992@gmail.com>",
+  "license": "MIT"
+}
